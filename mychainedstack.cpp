@@ -9,8 +9,10 @@ using namespace std;
  */
 void Mychainedstack::push(int number) {
     Node *node;
-    node = new Node(number);
-    if (this->first != nullptr) {
+    node = new Node();
+    node->number = number;
+
+    if (this->first != NULL) {
         node->next = this->first;
     }
 
@@ -26,16 +28,15 @@ int Mychainedstack::pop(void) {
     Node *current;
     int number;
 
-    if (this->first == nullptr) {
+    if (this->first == NULL) {
         return 42;
     }
 
     current = this->first;
-    next =  this->first->next;
+    next = current->next;
     number = current->number;
     this->first = next;
     delete current;
-    // free(current);
     return number;
 }
 
@@ -50,7 +51,7 @@ Mychainedstack *Mychainedstack::operator+(Mychainedstack s2) {
 
     newStack = new Mychainedstack();
 
-    if (s2.first == nullptr) {
+    if (s2.first == NULL) {
         newStack->first = duplicateNodeTree();
     } else {
 
@@ -66,18 +67,18 @@ Mychainedstack *Mychainedstack::operator+(Mychainedstack s2) {
  *
  */
 void Mychainedstack::clear(void) {
-    while (this->first != nullptr) {
+    while (this->first != NULL) {
         this->pop();
     }
 }
 
 Node *Mychainedstack::getLast() {
     Node *current;
-    if (this->first == nullptr) {
-        return nullptr;
+    if (this->first == NULL) {
+        return NULL;
     }
     current = this->first;
-    while (current->next != nullptr) {
+    while (current->next != NULL) {
         current = current->next;
     }
     return current;
@@ -89,10 +90,10 @@ void Mychainedstack::print() {
     int i;
     cout << "My chained stack" << endl;
     current = this->first;
-    if (this->first == nullptr) {
+    if (this->first == NULL) {
         cout << "Empty !" << endl;
     }
-    for (i = 0; current != nullptr; ++i) {
+    for (i = 0; current != NULL; ++i) {
         cout << i << " : " << current->number << endl;
         current = current->next;
     }
@@ -105,19 +106,20 @@ Node *Mychainedstack::duplicateNodeTree() {
     Node *next;
     Node *nextOriginal;
 
-    if (this->first == nullptr) {
-        return nullptr;
+    if (this->first == NULL) {
+        return NULL;
     }
-    firstNode = new Node(this->first->number);
+    firstNode = new Node();
+    firstNode->number = this->first->number;
 
     currentOriginal = this->first;
     current = firstNode;
     nextOriginal = currentOriginal->next;
 
-    while (nextOriginal != nullptr) {
+    while (nextOriginal != NULL) {
 
-        next = new Node(nextOriginal->number);
-        // next->number = nextOriginal->number;
+        next = new Node();
+        next->number = nextOriginal->number;
         current->next = next;
         current = next;
         nextOriginal = nextOriginal->next;
@@ -130,10 +132,6 @@ Node *Mychainedstack::duplicateNodeTree() {
 
 Mychainedstack::~Mychainedstack() {
     this->clear();
-}
-
-Mychainedstack::Mychainedstack() {
-    this->first = nullptr;
 }
 
 

@@ -4,14 +4,7 @@
 #include <ostream>
 #include "mystack.h"
 
-class Node {
-public:
-    explicit Node(int num) {
-        this->number = num;
-        this->next = nullptr;
-    }
-    ~Node() = default;
-
+struct Node {
     int number;
     Node *next;
 };
@@ -29,8 +22,6 @@ private:
 public:
 
     ~Mychainedstack();
-
-    Mychainedstack();
 
     void push(int number);
 
