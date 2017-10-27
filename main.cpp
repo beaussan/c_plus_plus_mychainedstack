@@ -53,41 +53,6 @@ int main()
 
 	cout << "New : thinkgy" << endl;
 
-	Mychainedstack* stack1 = new Mychainedstack();
-	Mychainedstack* stack2 = new Mychainedstack();
-	// + test de fuite memoire
-
-    cout << "Start push value " << endl;
-	stack1->push(1);
-    cout << "Start push value " << endl;
-	stack1->push(2);
-    cout << "Start push value " << endl;
-	stack1->push(3);
-
-    cout << "Start push value Stack 2" << endl;
-    stack2->print();
-	stack2->push(10);
-    stack2->print();
-    cout << "Start push value Stack 2" << endl;
-	stack2->push(20);
-    cout << "Start push value Stack 2" << endl;
-	stack2->push(30);
-
-    cout << "Start copy" << endl;
-
-	Mychainedstack *appenBis = *stack1 + *stack2;
-
-    cout << "End copy" << endl;
-
-    appenBis->print();
-
-    cout << "Start boucle" << endl;
-
-
-
-    delete stack1;
-    delete stack2;
-    delete appenBis;
     delete appendstack;
     delete mystack;
 
