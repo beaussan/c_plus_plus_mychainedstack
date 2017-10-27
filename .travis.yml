@@ -2,6 +2,7 @@ language: cpp
 compiler: gcc
 
 matrix:
+  fast_finish: true
   include:
     # works on Precise and Trusty
     - os: linux
