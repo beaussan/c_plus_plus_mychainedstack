@@ -50,5 +50,4 @@ matrix:
 before_install:
     - eval "${MATRIX_EVAL}"
 
-script: g++ -Wall -Werror -o stacktest *.cpp
-script: ./stacktest
+script: g++ -Wall -Werror -o stacktest *.cpp && ./stacktest
